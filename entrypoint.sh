@@ -16,7 +16,7 @@ if [[ "$3" != "" && "$4" != "" ]]; then
     fi
 elif [[ "$3" != "" ]]; then
     gomerge list -r "$1" -f "$3" --raw
-elif [[ "$4" != "" ]]; then
+elif [[ "$4" != "" && "$4" != "false" ]]; then
     gomerge list -r "$1" -f "" -a --raw
 else
     gomerge list -r "$1" --raw
