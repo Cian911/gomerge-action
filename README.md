@@ -14,7 +14,51 @@ If any of these metrics are not in a valid state, the pull request will not be a
 
 Below outlines a list of possible use cases if you wanted to automated your repositories approval/merge workflow.
 
-
+You can also specify a list of labels in the following format `label1,label2...` and pass that as option like so:
 ```yaml
+with:
+  labels: label1,label2
+```
 
+This will filter all Pull Requests that only have the associated labels.
+
+---
+
+Run action once a day at midnight to approve all valid Pull Requests.
+```yaml
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  approve-prs:
+    runs-on: ubuntu-latest
+    name: Approve valid PRs 
+    steps:
+      - name: Approve valid workflows
+        uses: Cian911/gomerge-action@master
+        with:
+          repository: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ""
+          approve: "true"
+```
+
+Run action once a day at midnight to merge all valid Pull Requests.
+```yaml
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  approve-prs:
+    runs-on: ubuntu-latest
+    name: Approve valid PRs 
+    steps:
+      - name: Approve valid workflows
+        uses: Cian911/gomerge-action@master
+        with:
+          repository: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ""
 ```
