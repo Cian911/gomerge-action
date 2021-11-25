@@ -1,30 +1,23 @@
-#!/bin/sh
-
-set -e
-set -o pipefail
+#!/bin/sh -l
 
 # $1: org/repo
 # $2: github_token
 # $3: filters
 # $4: appove
 
-echo "REPO: $REPOSITORY, $1"
-echo "TOKEN: $GITHUB_TOKEN, $2"
-echo "FILTER: $FILTERS, $3"
-echo "APPROVE: $APPROVE, $4"
+export GITHUB_TOKEN=$2
+echo "Repo: $1, Filters: $3, appove: $4"
 
-export GITHUB_TOKEN=$GITHUB_TOKEN
-
-if [[ "$FILTERS" != "" && "$APPROVE" != "" ]]; then
-    if [[ $APPROVE != "false" ]]; then
-        gomerge list -r $REPOSITORY -a --raw
+if [[ "$3" != "" && "$4" != "" ]]; then
+    if [[ $3 != "false" ]]; then
+        gomerge list -r "$1" -a --raw
     else
-        gomerge list -r $REPOSITORY -f $FILTERS -a --raw
+        gomerge list -r "$1" -f "$3" -a --raw
     fi
-elif [[ "$FILTERS" != "" ]]; then
-    gomerge list -r $REPOSITORY -f $FILTERS --raw
-elif [[ "$APPROVE" != "" ]]; then
-    gomerge list -r $REPOSITORY -f "" -a --raw
+elif [[ "$3" != "" ]]; then
+    gomerge list -r "$1" -f "$3" --raw
+elif [[ "$4" != "" ]]; then
+    gomerge list -r "$1" -f "" -a --raw
 else
-    gomerge list -r $REPOSITORY --raw
+    gomerge list -r "$1" --raw
 fi
