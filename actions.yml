@@ -18,7 +18,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
+  build-args:
     - ${{ inputs.repository }}
     - ${{ inputs.github_token }}
     - ${{ inputs.labels }}
