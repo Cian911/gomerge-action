@@ -3,7 +3,7 @@
 # $1: org/repo
 # $2: github_token
 # $3: filters
-# $4: appove_only
+# $4: appove
 
 if [[ "$3" != "" && "$4" != "" ]]; then
     if [[ $3 != "false" ]]; then

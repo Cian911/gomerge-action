@@ -11,10 +11,10 @@ inputs:
   labels: 
     description: 'List of labels that should only be approved/merged.'
     required: false
-  strategy:
-    description: 'The strategy you want to use. Options: approve, merge. Default is merge.'
+  approve:
+    description: 'Set this option if you only want to approve pull requests and not merge them. Default is false.'
     required: false
-    default: 'merge'
+    default: false
 runs:
   using: "docker"
   image: "Docker"
@@ -22,4 +22,4 @@ runs:
     - ${{ inputs.labels }}
     - ${{ inputs.repository }}
     - ${{ inputs.github_token }}
-    - ${{ inputs.strategy }}
+    - ${{ inputs.approve }}
