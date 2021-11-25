@@ -18,8 +18,8 @@ inputs:
 runs:
   using: "docker"
   image: "Docker"
-  args:
-    - ${{ inputs.repository }}
-    - ${{ inputs.github_token }}
-    - ${{ inputs.labels }}
-    - ${{ inputs.approve }}
+  env:
+    REPOSITORY:   ${{ inputs.repository }}
+    GITHUB_TOKEN: ${{ inputs.github_token }}
+    FILTERS:      ${{ inputs.labels }}
+    APPROVE:      ${{ inputs.approve }}
