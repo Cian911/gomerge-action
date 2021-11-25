@@ -5,6 +5,8 @@
 # $3: filters
 # $4: appove
 
+export GITHUB_TOKEN=$GITHUB_TOKEN
+
 if [[ "$FILTERS" != "" && "$APPROVE" != "" ]]; then
     if [[ $APPROVE != "false" ]]; then
         gomerge list -r $REPOSITORY -a --raw
