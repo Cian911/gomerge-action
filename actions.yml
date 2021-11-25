@@ -3,7 +3,7 @@ description: 'Bulk merge and approve pull requests on a schedule'
 inputs:
   repository:
     description: 'The repository this actions should run against. Default is the current repository.'
-    require: true
+    required: true
     default: ${{ github.repository }}
   github_token:
     description: 'Github token which has access to given repository.'

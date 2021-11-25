@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -l
 
 # $1: org/repo
 # $2: github_token
