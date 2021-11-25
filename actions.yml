@@ -1,0 +1,25 @@
+name: 'Gomerge'
+description: 'Bulk merge and approve pull requests on a schedule'
+inputs:
+  repository:
+    description: 'The repository this actions should run against. Default is the current repository.'
+    require: true
+    default: ${{ github.repository }}
+  github_token:
+    description: 'Github token which has access to given repository.'
+    required: true
+  labels: 
+    description: 'List of labels that should only be approved/merged.'
+    required: false
+  strategy:
+    description: 'The strategy you want to use. Options: approve, merge. Default is merge.'
+    required: false
+    default: 'merge'
+runs:
+  using: "docker"
+  image: "Docker"
+  args:
+    - ${{ inputs.labels }}
+    - ${{ inputs.repository }}
+    - ${{ inputs.github_token }}
+    - ${{ inputs.strategy }}
