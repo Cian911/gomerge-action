@@ -6,17 +6,18 @@
 # $4: appove
 
 export GITHUB_TOKEN=$2
+echo "gomerge list -r $1"
 
 if [[ "$3" != "" && "$4" != "" ]]; then
     if [[ $3 != "false" ]]; then
-        gomerge list -r $1 -a --raw
+        gomerge list -r "$1" -a --raw
     else
-        gomerge list -r $1 -f $3 -a --raw
+        gomerge list -r "$1" -f "$3" -a --raw
     fi
 elif [[ "$3" != "" ]]; then
-    gomerge list -r $1 -f $3 --raw
+    gomerge list -r "$1" -f "$3" --raw
 elif [[ "$4" != "" ]]; then
-    gomerge list -r $1 -f "" -a --raw
+    gomerge list -r "$1" -f "" -a --raw
 else
-    gomerge list -r $1 --raw
+    gomerge list -r "$1" --raw
 fi
