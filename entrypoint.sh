@@ -5,6 +5,11 @@
 # $3: filters
 # $4: appove
 
+echo "REPO: $REPOSITORY, $1"
+echo "TOKEN: $GITHUB_TOKEN, $2"
+echo "FILTER: $FILTERS, $3"
+echo "APPROVE: $APPROVE, $4"
+
 export GITHUB_TOKEN=$GITHUB_TOKEN
 
 if [[ "$FILTERS" != "" && "$APPROVE" != "" ]]; then
