@@ -8,9 +8,11 @@ inputs:
   github_token:
     description: 'Github token which has access to given repository.'
     required: true
+    default: ${{ secrets.GITHUB_TOKEN }}
   labels: 
     description: 'List of labels that should only be approved/merged.'
     required: false
+    default: ""
   approve:
     description: 'Set this option if you only want to approve pull requests and not merge them. Default is false.'
     required: false

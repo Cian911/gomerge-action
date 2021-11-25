@@ -1,4 +1,7 @@
-#!/bin/sh -l
+#!/bin/sh
+
+set -e
+set -o pipefail
 
 # $1: org/repo
 # $2: github_token
