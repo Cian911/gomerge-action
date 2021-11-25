@@ -16,25 +16,10 @@ inputs:
     required: false
     default: false
 runs:
-  using: 'composite'
-  steps:
-    run: |
-      if [[ "$FILTERS" != "" && "$APPROVE" != "" ]]; then
-          if [[ "$APPROVE" != "false" ]]; then
-              gomerge list -r "$REPOSITORY" -a --raw
-          else
-              gomerge list -r "$REPOSITORY" -f "$FILTERS" -a --raw
-          fi
-      elif [[ "$FILTERS" != "" ]]; then
-          gomerge list -r "$REPOSITORY" -f "$FILTERS" --raw
-      elif [[ "$APPROVE" != "" ]]; then
-          gomerge list -r "$REPOSITORY" -f "" -a --raw
-      else
-          gomerge list -r "$REPOSITORY" --raw
-      fi
-    shell: bash
-    env:
-      REPOSITORY:   ${{ inputs.repository }}
-      GITHUB_TOKEN: ${{ inputs.github_token }}
-      FILTERS:      ${{ inputs.labels }}
-      APPROVE:      ${{ inputs.approve }}
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository }}
+    - ${{ inputs.github_token }}
+    - ${{ inputs.labels }}
+    - ${{ inputs.approve }}

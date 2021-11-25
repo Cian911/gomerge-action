@@ -5,4 +5,6 @@ RUN apk upgrade && \
 
 COPY entrypoint.sh /entrypoint.sh
 
+RUN echo "REPO: $1"
+
 ENTRYPOINT ["/entrypoint.sh"]
