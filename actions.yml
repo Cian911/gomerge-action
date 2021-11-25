@@ -19,7 +19,7 @@ runs:
   using: "docker"
   image: "Docker"
   args:
-    - ${{ inputs.labels }}
     - ${{ inputs.repository }}
     - ${{ inputs.github_token }}
+    - ${{ inputs.labels }}
     - ${{ inputs.approve }}
