@@ -1,5 +1,9 @@
 name: 'Gomerge Action'
 description: 'Bulk merge and approve pull requests on a schedule'
+author: 'Cian Gallagher'
+branding:
+  icon: 'git-merge'
+  color: 'green'
 inputs:
   repository:
     description: 'The repository this actions should run against. Default is the current repository.'
