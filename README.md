@@ -1,6 +1,6 @@
 ### gomerge-action
 
-Github action which utilizes the Gomerge CLI tool, also created by myself, to bulk merge and approve github pull requests.
+Github action which utilizes the [Gomerge CLI tool](https://github.com/Cian911/gomerge), also created by myself, to bulk merge and approve github pull requests.
 
 Behind the scenes, Gomerge will determine the mergeability of a pull request by checking the following attributes:
 
