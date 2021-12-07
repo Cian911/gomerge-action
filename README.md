@@ -53,7 +53,7 @@ on:
 jobs:
   approve-prs:
     runs-on: ubuntu-latest
-    name: Approve valid PRs 
+    name: Merge valid PRs 
     steps:
       - name: Approve valid workflows
         uses: Cian911/gomerge-action@master
